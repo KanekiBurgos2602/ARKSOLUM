@@ -1,0 +1,131 @@
+/* === DESTACADOS (Featured) SECTION === */
+.services-section {
+  background-color: #14272b;
+  padding: 5rem 1.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.services-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 40px;
+  width: 100%;
+  background: linear-gradient(to bottom, transparent, #fefefe); 
+  z-index: 1;
+  pointer-events: none;
+}
+
+.services-title {
+  font-size: 2.4rem;
+  color: var(--color-primary);
+  font-weight: 800;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+}
+
+.services-grid {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.service-card {
+  background: #2e2e2e;
+  border-radius: 16px;
+  padding: 2.8rem 1.8rem 2rem;
+  max-width: 320px;
+  flex: 1 1 280px;
+  box-shadow: 0 8px 20px #00000050;
+  position: relative;
+  border: 1px solid #444;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  overflow: hidden;
+}
+
+/* Línea animada arriba de cada tarjeta */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background: var(--color-primary);
+  transition: width 0.4s ease;
+}
+
+.service-card.active::before {
+  width: 100%;
+}
+
+.service-card.active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+}
+
+/* Icono prehispánico */
+.service-icon {
+  max-height: 100px;
+  width: auto;
+  margin-bottom: 1.2rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.4));
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+  transform: scale(1.05);
+}
+
+/* Títulos */
+.service-title {
+  font-size: 1.15rem;
+  font-weight: 900;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: #f4a259;
+}
+
+/* Descripciones */
+.service-description {
+  font-size: 0.85rem;
+  color: #eee;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .services-title {
+    font-size: 2rem;
+  }
+
+  .service-card {
+    max-width: 100%;
+  }
+
+  .services-grid {
+    gap: 2rem;
+  }
+}

@@ -1,0 +1,138 @@
+/* === CTA CONTACT SECTION === */
+.cta-contact-section {
+  padding: 5rem 1.5rem 10rem 1.5rem;
+  background-color: #f1dfc2; /* tono arena cálido */
+  display: flex;
+  justify-content: center;
+  background-image: radial-gradient(circle at 5% 5%, rgba(0,0,0,0.02), transparent 70%);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Contenedor principal */
+.cta-contact-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  gap: 2rem;
+  flex-wrap: wrap;
+  border-left: 3px solid rgba(184, 90, 43, 0.3); 
+  padding-left: 1.2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* === Texto === */
+.cta-contact-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.cta-contact-text h2 {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #4a2d14; /* tono café oscuro */
+  margin-bottom: 1rem;
+}
+
+.cta-contact-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #3b2b17;
+  margin-bottom: 1rem;
+  max-width: 550px;
+}
+
+.cta-contact-button {
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.8rem;
+  background-color: #b85a2b;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.cta-contact-button:hover {
+  background-color: #8c411f;
+  transform: translateY(-2px);
+}
+
+/* === Imagen === */
+.cta-contact-image {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.cta-contact-image img {
+  width: 100%;
+  max-width: 380px; /* ligeramente más grande */
+  height: auto;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
+  transition: transform 0.4s ease;
+}
+
+.cta-contact-image img:hover {
+  transform: scale(1.05);
+}
+
+/* === Animaciones === */
+.animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .cta-contact-container {
+    flex-direction: column;
+    border-left: none;
+    padding-left: 0;
+    text-align: center;
+  }
+
+  .cta-contact-image {
+    justify-content: center;
+    margin-top: 2rem;
+  }
+
+  .cta-contact-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .cta-contact-text p {
+    font-size: 1rem;
+  }
+
+  .cta-contact-image img {
+    max-width: 260px;
+  }
+}

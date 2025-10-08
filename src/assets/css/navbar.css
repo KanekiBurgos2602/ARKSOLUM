@@ -1,0 +1,214 @@
+/* -------- TIPOGRAFÍA GLOBAL -------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --color-bg: #0d1b1e;
+  --color-primary: #f4a261;
+  --color-hover: #b84a39;
+  --color-accent: #264653;
+  --color-text: #ffffff;
+}
+
+body, .navbar { font-family: 'Poppins', sans-serif; font-size: 0.95rem; }
+
+/* -------- NAVBAR PRINCIPAL -------- */
+
+.navbar {
+  background: var(--color-bg);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+}
+
+/* -------- LINKS: SIN SUBRAYADO -------- */
+.navbar a { text-decoration: none; }
+
+/* -------- LOGO -------- */
+
+.nav-logo, .nav-logo-link { display: flex; align-items: center; }
+.nav-logo-link { gap: 0.4rem; margin-right: 2rem; }
+
+.logo-img-full { height: 40px; width: auto; }
+
+.logo-text-full {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  white-space: nowrap;
+  position: relative;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.logo-text-full::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.logo-text-full:hover { color: var(--color-hover); }
+.logo-text-full:hover::after { width: 100%; }
+
+/* -------- MENÚ PRINCIPAL -------- */
+.nav-menu { display: flex; align-items: center; gap: 1.8rem; }
+
+.nav-link, .dropdown-toggle, .dropdown-link, .contact-btn {
+  color: var(--color-text);
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+  text-decoration: none;
+}
+
+.nav-link:hover, .dropdown-toggle:hover, .dropdown-link:hover { color: var(--color-primary); }
+
+.nav-link::after, .dropdown-toggle::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: var(--color-primary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after, .dropdown-toggle:hover::after { width: 100%; }
+
+/* -------- BOTÓN CONTACTO -------- */
+.contact-btn {
+  background: var(--color-primary);
+  color: #000 !important;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.contact-btn:hover { background: var(--color-hover); color: #fff !important; }
+.contact-btn::after { display: none; }
+
+/* -------- DROPDOWN -------- */
+.nav-dropdown { position: relative; }
+
+.dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+
+.dropdown-arrow {
+  font-size: 0.7rem;
+  color: var(--color-primary);
+  transition: transform 0.3s ease;
+}
+
+.nav-dropdown:hover .dropdown-arrow { transform: rotate(180deg); }
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--color-bg);
+  min-width: 250px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  z-index: 10;
+}
+
+.nav-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-link {
+  display: block;
+  padding: 0.8rem 1.2rem;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.dropdown-link:hover { background: var(--color-accent); color: var(--color-primary); }
+.dropdown-link:last-child { border-bottom: none; }
+
+/* -------- HAMBURGUESA MÓVIL -------- */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 3px;
+  background: var(--color-text);
+  margin: 2px 0;
+  transition: 0.3s;
+}
+
+.hamburger-line.active:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+.hamburger-line.active:nth-child(2) { opacity: 0; }
+.hamburger-line.active:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 768px) {
+  .nav-hamburger { display: flex; }
+
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background-color: var(--color-bg);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.1);
+    padding: 2rem 0;
+    gap: 1rem;
+  }
+
+  .nav-menu.active { left: 0; }
+
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    margin-top: 0.5rem;
+    box-shadow: none;
+    background-color: var(--color-bg);
+  }
+
+  .nav-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .logo-text-full { font-size: 1rem; margin-right: 0; }
+}
+
+/* -------- CONTENIDO PRINCIPAL -------- */
+.main-content { min-height: calc(100vh - 70px); }
