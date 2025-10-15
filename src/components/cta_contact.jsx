@@ -7,28 +7,30 @@ function CtaContact() {
   const imageRef = useRef(null);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
+
     const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
+      (entries) => {
+        entries.forEach((entry) => {
+          const goingDown = window.scrollY > lastScrollY;
+          lastScrollY = window.scrollY;
+
+          if (entry.isIntersecting && goingDown) {
+            // 🔹 Aparece al bajar
             entry.target.classList.add("active");
-            observer.unobserve(entry.target);
+          } else if (!entry.isIntersecting && !goingDown) {
+            // 🔹 Desaparece solo si subes
+            entry.target.classList.remove("active");
           }
         });
       },
-      { threshold: 0.2 } // menos sensible
+      { threshold: 0.3 } // se activa con ~30% visible
     );
 
-    const textElement = textRef.current;
-    const imageElement = imageRef.current;
+    const elements = [textRef.current, imageRef.current];
+    elements.forEach((el) => el && observer.observe(el));
 
-    if (textElement) observer.observe(textElement);
-    if (imageElement) observer.observe(imageElement);
-
-    return () => {
-      if (textElement) observer.unobserve(textElement);
-      if (imageElement) observer.unobserve(imageElement);
-    };
+    return () => elements.forEach((el) => el && observer.unobserve(el));
   }, []);
 
   return (
@@ -37,8 +39,8 @@ function CtaContact() {
         <div className="cta-contact-text animate" ref={textRef}>
           <h2>¿Quieres iniciar tu proyecto con el pie derecho?</h2>
           <p>
-            Permítenos acompañarte desde la planeación hasta la ejecución.
-            Ofrecemos asesoría profesional adaptada a tus metas.
+            Permítenos acompañarte desde la planeación hasta la ejecución.  
+            Ofrecemos asesoría profesional adaptada a tus metas y visión.
           </p>
           <button className="cta-contact-button">Hablar con un experto</button>
         </div>

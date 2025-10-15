@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes as RouterRoutes, Route } from 'react-router-dom'
 import Home from './pages/home'
+import SobreNosotros from './pages/about_us'
 
 function Routes() {
   return (
@@ -9,7 +10,7 @@ function Routes() {
           <RouterRoutes>
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            {/* Aquí puedes agregar más rutas cuando crees las otras páginas */}
+            <Route path="/sobre-nosotros" element={<SobreNosotros />} />
             {/* <Route path="/sobre-nosotros" element={<About />} /> */}
             {/* <Route path="/servicios" element={<Services />} /> */}
             {/* <Route path="/servicios/asesoria-construccion" element={<AsesoriaConstructor />} /> */}

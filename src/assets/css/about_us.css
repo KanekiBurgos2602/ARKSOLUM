@@ -1,0 +1,146 @@
+/* === FONDO GENERAL === */
+.about-modern {
+  background-color: #f2e5c2;
+  color: #2b2b2b;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+/* === HERO === */
+.about-hero {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, #e8d7b0, #f2e5c2);
+  text-align: center;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.about-hero.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top, rgba(0, 0, 0, 0.04), transparent 70%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 750px;
+}
+
+.hero-logo {
+  width: 90px;
+  margin-bottom: 1rem;
+}
+
+.about-hero h1 {
+  font-size: 2.6rem;
+  color: #8a4d23;
+  font-weight: 800;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.5px;
+  text-shadow: none;
+}
+
+.about-hero p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #3d2c17;
+}
+
+/* === BLOQUES === */
+.about-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 6rem auto;
+  padding: 0 1.5rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.about-block.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Activación animada */
+.animate.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === TEXTO === */
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text h2 {
+  color: #8a4d23;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  color: #2b2b2b;
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* === IMÁGENES === */
+.about-img {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-img img {
+  width: 100%;
+  max-width: 460px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease;
+}
+
+.about-img img:hover {
+  transform: scale(1.05);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .about-block {
+    flex-direction: column;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .about-hero h1 {
+    font-size: 2rem;
+  }
+
+  .about-text h2 {
+    font-size: 1.6rem;
+  }
+
+  .about-img img {
+    max-width: 320px;
+  }
+}

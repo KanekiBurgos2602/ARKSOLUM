@@ -173,18 +173,6 @@
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* === Animación de aparición === */
-.animate {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.animate.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* --- Responsive --- */
 @media (max-width: 900px) {
   .footer-container {

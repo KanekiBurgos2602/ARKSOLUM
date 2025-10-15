@@ -1,34 +1,11 @@
-import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import "../assets/css/footer.css";
 import LogoArksolum from "../assets/img/Logo.png";
 import { Facebook, Instagram, Mail, MessageCircle, MapPin } from "lucide-react";
 
 function Footer() {
-  const footerRef = useRef(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    const footerElement = footerRef.current;
-    if (footerElement) observer.observe(footerElement);
-
-    return () => {
-      if (footerElement) observer.unobserve(footerElement);
-    };
-  }, []);
-
   return (
-    <footer className="footer-section animate" ref={footerRef}>
+    <footer className="footer-section">
       <div className="footer-container">
         {/* === Columna 1: Logo y descripción === */}
         <div className="footer-column footer-brand">

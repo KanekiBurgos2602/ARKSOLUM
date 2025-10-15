@@ -36,17 +36,17 @@ function IntroSection() {
     <section className="intro-section">
       <div className="intro-container">
         <div className="intro-text animate" ref={textRef}>
-          <h2>Construimos cimientos con propósito</h2>
+          <h2>Donde la tierra se convierte en legado</h2>
           <p>
-            En <strong>ArkSolum Constructora</strong>, transformamos ideas en estructuras duraderas. 
-            Nuestro compromiso es ofrecer soluciones constructivas que fusionan ingeniería moderna con una visión inspirada en la fortaleza y legado de la cultura mexicana.
+            En <strong>ArkSolum Constructora</strong>, cada obra nace del equilibrio entre la fuerza del suelo y la visión humana. 
+            Construimos espacios que trascienden el tiempo, inspirados por la conexión entre el origen, la técnica y la creación.
           </p>
           <p>
-            Desde la planeación hasta la entrega final, trabajamos con precisión, ética y pasión. 
-            Cada proyecto que edificamos refleja la solidez de nuestros valores: claridad, calidad y compromiso con quienes confían en nosotros.
+            No solo levantamos estructuras: moldeamos historia. 
+            Fusionamos la esencia del diseño contemporáneo con la energía ancestral que define nuestra identidad.
           </p>
 
-          <button className="intro-button">Descubrir más</button>
+          <button className="intro-button">Explorar visión</button>
         </div>
 
         <div className="intro-image animate-right" ref={imageRef}>
