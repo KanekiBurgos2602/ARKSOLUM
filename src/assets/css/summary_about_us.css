@@ -1,6 +1,7 @@
+/* === SUMMARY SECTION === */
 .summary-section {
   background-color: #132225;
-  padding: 5rem 1.5rem;
+  padding: 6rem 1.5rem 9rem; /* mismo padding que services */
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -44,7 +45,7 @@
   z-index: 2;
 }
 
-/* Línea decorativa opcional */
+/* Línea decorativa */
 .summary-title::after {
   content: "";
   display: block;
@@ -83,10 +84,10 @@
   transform: translateY(0);
 }
 
-/* Responsive */
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
   .summary-section {
-    padding: 4rem 1rem;
+    padding: 4rem 1rem 6rem;
   }
 
   .summary-wrapper {
@@ -100,9 +101,23 @@
   .summary-text {
     font-size: 1rem;
   }
+}
 
-  .summary-icon-bg {
-    background-size: 140px;
-    top: 30px;
+@media (max-width: 480px) {
+  .summary-section {
+    padding: 3.5rem 1rem 5.5rem;
+  }
+
+  .summary-wrapper {
+    padding: 1.8rem 1.2rem;
+  }
+
+  .summary-title {
+    font-size: 1.8rem;
+  }
+
+  .summary-text {
+    font-size: 0.96rem;
   }
 }
+

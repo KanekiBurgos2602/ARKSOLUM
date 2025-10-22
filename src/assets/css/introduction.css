@@ -1,16 +1,20 @@
 /* === INTRODUCTION SECTION === */
 .intro-section {
-  padding: 4rem 1.5rem;
+  padding: 5rem 2.5rem 11rem;
   background-color: #ffffff;
   display: flex;
   justify-content: center;
-  background-image: radial-gradient(circle at 5% 5%, rgba(0,0,0,0.015), transparent 70%);
+  background-image:
+    radial-gradient(circle at 5% 5%, rgba(0, 0, 0, 0.015), transparent 70%);
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
+  z-index: 0; /* Asegura que no tape los ::before/::after */
 }
 
+
+/* Gradiente inferior */
 .intro-section::after {
   content: '';
   position: absolute;
@@ -23,37 +27,79 @@
   z-index: 1;
 }
 
+/* Contenedor flexible */
 .intro-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  max-width: 1200px;
-  gap: 1.5rem;
+  justify-content: space-between;
+  max-width: 1400px;
+  width: 100%;
+  gap: 3rem;
   flex-wrap: wrap;
   border-left: 3px solid rgba(255, 165, 0, 0.2);
-  padding-left: 1.2rem; 
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
+/* Texto */
+.intro-text {
+  flex: 1.2;
+  min-width: 300px;
+  max-width: none;
+}
+
+.intro-text h2 {
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.intro-text p {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Botón */
 .intro-button {
   margin-top: 1.5rem;
   padding: 0.75rem 1.5rem;
   background-color: var(--color-primary);
   color: #fff;
   font-weight: 600;
-  font-size: 1rem;
+  font-size: clamp(0.9rem, 2vw, 1rem);
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .intro-button:hover {
-  background-color: #d2792a; 
+  background-color: #d2792a;
   transform: translateY(-2px);
 }
 
-/* Estados iniciales: ocultos y desplazados */
+/* Imagen/logo */
+.intro-image {
+  flex: 1;
+  min-width: 220px;
+  max-width: 320px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.intro-image img {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
+}
+
+/* Animaciones (JS opcional) */
 .animate {
   opacity: 0;
   transform: translateY(40px);
@@ -66,7 +112,6 @@
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-/* Al activarse */
 .animate.active {
   opacity: 1;
   transform: translateY(0);
@@ -77,42 +122,8 @@
   transform: translateX(0);
 }
 
-.intro-text {
-  flex: 1;
-  min-width: 300px;
-}
-
-.intro-text h2 {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: var(--color-primary);
-  margin-bottom: 1rem;
-}
-
-.intro-text p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #333;
-  margin-bottom: 1rem;
-}
-
-.intro-image {
-  flex: 1;
-  min-width: 280px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.intro-image img {
-  width: 100%;
-  max-width: 280px;
-  height: auto;
-  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.4));
-}
-
-/* Responsive */
-@media (max-width: 768px) {
+/* === RESPONSIVE === */
+@media (max-width: 1024px) {
   .intro-container {
     flex-direction: column;
     border-left: none;
@@ -125,11 +136,21 @@
     margin-top: 2rem;
   }
 
-  .intro-text h2 {
-    font-size: 1.8rem;
+  .intro-image img {
+    max-width: 220px;
   }
 
-  .intro-text p {
-    font-size: 1rem;
+  .intro-text {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .intro-section {
+    padding: 3rem 1rem;
+  }
+
+  .intro-button {
+    width: 100%;
   }
 }

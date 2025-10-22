@@ -1,14 +1,44 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import '../assets/css/navbar.css';
 import LogoArksolum from '../assets/img/Logo.png';
 
 function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const location = useLocation();
+
+  // 🔧 Limpia el estado y scroll cuando se cambia de ruta
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setIsDropdownOpen(false);
+    document.body.classList.remove('menu-open');
+  }, [location]);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    const newState = !isMenuOpen;
+    setIsMenuOpen(newState);
+    document.body.classList.toggle('menu-open', newState);
+    if (!newState) setIsDropdownOpen(false);
   };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  // Cierra el menú al cambiar tamaño de pantalla (ej. rotación)
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 768) {
+        setIsMenuOpen(false);
+        setIsDropdownOpen(false);
+        document.body.classList.remove('menu-open');
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <nav className="navbar">
@@ -24,40 +54,41 @@ function Navbar() {
 
         {/* MENÚ PRINCIPAL */}
         <div className={`nav-menu ${isMenuOpen ? 'active' : ''}`}>
-          <Link to="/" className="nav-link" onClick={() => setIsMenuOpen(false)}>Inicio</Link>
-          <Link to="/sobre-nosotros" className="nav-link" onClick={() => setIsMenuOpen(false)}>Sobre Nosotros</Link>
+          <Link to="/" className="nav-link" onClick={toggleMenu}>Inicio</Link>
+          <Link to="/sobre-nosotros" className="nav-link" onClick={toggleMenu}>Sobre Nosotros</Link>
 
-          {/* MENÚ DESPLEGABLE DE SERVICIOS */}
+          {/* DESPLEGABLE SERVICIOS */}
           <div className="nav-dropdown">
-            <div className="dropdown-toggle nav-link" onClick={() => setIsMenuOpen(false)}>
+            <div
+              className={`dropdown-toggle nav-link ${isDropdownOpen ? 'open' : ''}`}
+              onClick={toggleDropdown}
+            >
               <span>Servicios</span>
               <span className="dropdown-arrow">▼</span>
             </div>
-            <div className="dropdown-menu">
-              <Link to="/servicios/asesoramiento-personalizado" className="dropdown-link">
+            <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`}>
+              <Link to="/servicios/asesoramiento-personalizado" className="dropdown-link" onClick={toggleMenu}>
                 Consultoría y asesoramiento
               </Link>
-              <Link to="/servicios/visitas-tecnicas" className="dropdown-link">
+              <Link to="/servicios/visitas-tecnicas" className="dropdown-link" onClick={toggleMenu}>
                 Inspecciones y visitas técnicas
               </Link>
-              <Link to="/servicios/supervision-obra" className="dropdown-link">
+              <Link to="/servicios/supervision-obra" className="dropdown-link" onClick={toggleMenu}>
                 Control y supervisión de obra
               </Link>
-              <Link to="/servicios/revision-presupuestos" className="dropdown-link">
+              <Link to="/servicios/revision-presupuestos" className="dropdown-link" onClick={toggleMenu}>
                 Análisis y revisión de presupuestos
               </Link>
-              <Link to="/servicios/orientacion-remodelaciones" className="dropdown-link">
+              <Link to="/servicios/orientacion-remodelaciones" className="dropdown-link" onClick={toggleMenu}>
                 Guía y orientación en remodelaciones
               </Link>
             </div>
           </div>
 
-          <Link to="/portafolio" className="nav-link" onClick={() => setIsMenuOpen(false)}>Portafolio</Link>
-          <Link to="/proceso" className="nav-link" onClick={() => setIsMenuOpen(false)}>Proceso</Link>
-          <Link to="/testimonios" className="nav-link" onClick={() => setIsMenuOpen(false)}>Testimonios</Link>
-          <Link to="/blog" className="nav-link" onClick={() => setIsMenuOpen(false)}>Blog</Link>
-
-          <Link to="/contacto" className="nav-link contact-btn" onClick={() => setIsMenuOpen(false)}>Contacto</Link>
+          <Link to="/portafolio" className="nav-link" onClick={toggleMenu}>Portafolio</Link>
+          <Link to="/testimonios" className="nav-link" onClick={toggleMenu}>Testimonios</Link>
+          <Link to="/blog" className="nav-link" onClick={toggleMenu}>Blog</Link>
+          <Link to="/contacto" className="nav-link contact-btn" onClick={toggleMenu}>Contacto</Link>
         </div>
 
         {/* BOTÓN HAMBURGUESA */}
@@ -72,4 +103,3 @@ function Navbar() {
 }
 
 export default Navbar;
-

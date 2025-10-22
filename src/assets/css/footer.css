@@ -183,13 +183,15 @@
   }
 
   .footer-brand,
-  .footer-contact {
+  .footer-contact,
+  .footer-links {
     text-align: center;
-    margin: 0;
+    margin: 0 auto;
+    max-width: 100%;
   }
 
-  .footer-links {
-    margin-left: 0;
+  .footer-logo {
+    justify-content: center;
   }
 
   .footer-contact ul li {
@@ -198,5 +200,10 @@
 
   .footer-social {
     justify-content: center;
+  }
+
+  .footer-links ul {
+    grid-template-columns: 1fr; 
+    gap: 0.6rem 0;
   }
 }

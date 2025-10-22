@@ -12,44 +12,13 @@ function SobreNosotros() {
   const sectionsRef = useRef([]);
 
   useEffect(() => {
-    const elements = sectionsRef.current;
+    // 🔹 Forzar scroll al tope al cargar
+    window.scrollTo(0, 0);
 
-    // 🔹 Animación para todas las secciones
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
-        });
-      },
-      { threshold: 0.25 }
-    );
-
-    elements.forEach((el) => el && observer.observe(el));
-
-    // 🔹 Reinicia animaciones al volver al tope, EXCEPTO el hero
-    const handleScroll = () => {
-      if (window.scrollY <= 50) {
-        elements.forEach((el, index) => {
-          if (index !== 0 && el) el.classList.remove("active"); // el hero no se toca
-        });
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // 🔹 Activa animación inicial del hero con un pequeño retardo
-    const hero = elements[0];
-    if (hero) {
-      hero.classList.add("animate"); // asegura que tenga clase animate
-      setTimeout(() => hero.classList.add("active"), 300);
-    }
-
-    return () => {
-      elements.forEach((el) => el && observer.unobserve(el));
-      window.removeEventListener("scroll", handleScroll);
-    };
+    // 🔹 Activar animación en TODOS los elementos tras delay
+    setTimeout(() => {
+      sectionsRef.current.forEach((el) => el?.classList.add("active"));
+    }, 200);
   }, []);
 
   return (
