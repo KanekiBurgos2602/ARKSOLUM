@@ -3,6 +3,8 @@ import Home from './pages/home'
 import SobreNosotros from './pages/about_us'
 import Portafolio from './pages/portfolio'
 import Testimonials from './pages/testimonials'
+import Blog from './pages/blog'
+import Contact from './pages/contact'
 
 function Routes() {
   return (
@@ -21,8 +23,8 @@ function Routes() {
             {/* <Route path="/servicios/presupuestos" element={<Presupuestos />} /> */}
             <Route path="/portafolio" element={<Portafolio />} />
             <Route path="/testimonios" element={<Testimonials />} />
-            {/* <Route path="/blog" element={<Blog />} /> */}
-            {/* <Route path="/contacto" element={<Contact />} /> */}
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/contacto" element={<Contact />} />
           </RouterRoutes>
         </main>
       </div>

@@ -1,5 +1,5 @@
 /* === SECCIÓN TESTIMONIOS === */
-.testimonials-section {
+.full-testimonials-section {
   background-color: #e6d2b5;
   color: #3b2a20;
   font-family: 'Poppins', sans-serif;
@@ -10,34 +10,34 @@
   transition: opacity 1s ease-out, transform 1s ease-out;
 }
 
-.testimonials-section.active {
+.full-testimonials-section.active {
   opacity: 1;
   transform: translateY(0);
 }
 
 /* === ENCABEZADO === */
-.testimonials-hero {
+.full-testimonials-hero {
   text-align: center;
   padding: 5rem 2rem 2rem;
   max-width: 800px;
   margin: 0 auto;
 }
 
-.testimonials-hero h1 {
+.full-testimonials-hero h1 {
   font-size: 2.6rem;
   font-weight: 800;
   color: #7e3b1b;
   margin-bottom: 1rem;
 }
 
-.testimonials-hero p {
+.full-testimonials-hero p {
   font-size: 1.2rem;
   color: #4a3a2a;
   line-height: 1.8;
 }
 
 /* === CONTENEDOR GRID === */
-.testimonials-grid {
+.full-testimonials-grid {
   max-width: 1300px;
   margin: 3rem auto 0;
   padding: 0 2rem;
@@ -47,7 +47,7 @@
 }
 
 /* === FILAS DE TESTIMONIOS === */
-.testimonials-row {
+.full-testimonials-row {
   display: flex;
   justify-content: center;
   gap: 2.5rem;
