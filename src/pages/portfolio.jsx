@@ -7,24 +7,12 @@ function Portafolio() {
   const sectionsRef = useRef([]);
 
   useEffect(() => {
-    const elements = sectionsRef.current;
+    window.scrollTo({ top: 0, behavior: "auto" });
+    document.body.style.overflowX = "hidden";
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
-        });
-      },
-      { threshold: 0.25 }
-    );
-
-    elements.forEach((el) => el && observer.observe(el));
-
-    return () => {
-      elements.forEach((el) => el && observer.unobserve(el));
-    };
+    requestAnimationFrame(() => {
+      sectionsRef.current.forEach((el) => el?.classList.add("active"));
+    });
   }, []);
 
   return (
@@ -33,11 +21,11 @@ function Portafolio() {
 
       <section className="portfolio-section">
         {/* --- HERO --- */}
-        <div
-          className="portfolio-hero animate"
-          ref={(el) => (sectionsRef.current[0] = el)}
-        >
-          <div className="hero-content">
+        <div className="portfolio-hero">
+          <div
+            className="hero-content animate"
+            ref={(el) => (sectionsRef.current[0] = el)}
+          >
             <h1>Portafolio de Proyectos</h1>
             <p>
               Cada obra cuenta una historia. Aquí te presentamos algunos ejemplos
@@ -75,7 +63,7 @@ function Portafolio() {
             </p>
           </div>
 
-          {/* --- FILA DE TARJETAS "PRÓXIMAMENTE" CENTRADAS --- */}
+          {/* --- FILA DE TARJETAS "PRÓXIMAMENTE" --- */}
           <div className="upcoming-wrapper">
             <div className="project-card upcoming">
               <h3 className="card-title">Próximamente</h3>
@@ -100,3 +88,4 @@ function Portafolio() {
 }
 
 export default Portafolio;
+

@@ -67,19 +67,19 @@ function Navbar() {
               <span className="dropdown-arrow">▼</span>
             </div>
             <div className={`dropdown-menu ${isDropdownOpen ? 'show' : ''}`}>
-              <Link to="/servicios/asesoramiento-personalizado" className="dropdown-link" onClick={toggleMenu}>
+              <Link to="/consultoria" className="dropdown-link" onClick={toggleMenu}>
                 Consultoría y asesoramiento
               </Link>
-              <Link to="/servicios/visitas-tecnicas" className="dropdown-link" onClick={toggleMenu}>
+              <Link to="/inspecciones" className="dropdown-link" onClick={toggleMenu}>
                 Inspecciones y visitas técnicas
               </Link>
-              <Link to="/servicios/supervision-obra" className="dropdown-link" onClick={toggleMenu}>
+              <Link to="/supervision" className="dropdown-link" onClick={toggleMenu}>
                 Control y supervisión de obra
               </Link>
-              <Link to="/servicios/revision-presupuestos" className="dropdown-link" onClick={toggleMenu}>
+              <Link to="/presupuesto" className="dropdown-link" onClick={toggleMenu}>
                 Análisis y revisión de presupuestos
               </Link>
-              <Link to="/servicios/orientacion-remodelaciones" className="dropdown-link" onClick={toggleMenu}>
+              <Link to="/remodelacion" className="dropdown-link" onClick={toggleMenu}>
                 Guía y orientación en remodelaciones
               </Link>
             </div>

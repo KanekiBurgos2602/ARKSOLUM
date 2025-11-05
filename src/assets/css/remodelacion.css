@@ -1,0 +1,119 @@
+/* === FONDO Y LAYOUT === */
+.remodel-section {
+  background-color: #0b1c2c; /* Azul marino profundo */
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+/* === CONTENEDOR Y ANIMACIÓN === */
+.remodel-content {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.remodel-content.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === TEXTO === */
+.remodel-text {
+  flex: 1 1 500px;
+  color: #f2f2f2;
+}
+
+.remodel-text h1 {
+  font-size: 2.5rem;
+  color: #aad8ff;
+  margin-bottom: 1.5rem;
+}
+
+.remodel-text p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #e1e8f0;
+}
+
+.remodel-list {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1rem;
+}
+
+.remodel-list li {
+  font-size: 1.05rem;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+  color: #d0e6ff;
+}
+
+.remodel-list li::before {
+  content: "✔️";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* === BOTÓN === */
+.remodel-btn-wrapper {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.remodel-btn {
+  background-color: #1e86c1;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.remodel-btn:hover {
+  background-color: #2a9ddb;
+  transform: scale(1.05);
+}
+
+/* === IMAGEN === */
+.remodel-image {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.remodel-image img {
+  max-width: 450px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 768px) {
+  .remodel-text h1 {
+    font-size: 2rem;
+  }
+
+  .remodel-text p {
+    font-size: 1rem;
+  }
+
+  .remodel-btn-wrapper {
+    justify-content: center;
+  }
+}

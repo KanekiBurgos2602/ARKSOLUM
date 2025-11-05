@@ -12,13 +12,12 @@ function SobreNosotros() {
   const sectionsRef = useRef([]);
 
   useEffect(() => {
-    // 🔹 Forzar scroll al tope al cargar
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "auto" });
+    document.body.style.overflowX = "hidden";
 
-    // 🔹 Activar animación en TODOS los elementos tras delay
-    setTimeout(() => {
+    requestAnimationFrame(() => {
       sectionsRef.current.forEach((el) => el?.classList.add("active"));
-    }, 200);
+    });
   }, []);
 
   return (
@@ -27,9 +26,9 @@ function SobreNosotros() {
 
       <section className="about-modern">
         {/* --- HERO --- */}
-        <div className="about-hero animate" ref={(el) => (sectionsRef.current[0] = el)}>
+        <div className="about-hero">
           <div className="hero-overlay"></div>
-          <div className="hero-content">
+          <div className="hero-content animate" ref={(el) => (sectionsRef.current[0] = el)}>
             <img src={LogoArksolum} alt="ArkSolum Constructora" className="hero-logo" />
             <h1>Construimos más que estructuras</h1>
             <p>
@@ -100,3 +99,4 @@ function SobreNosotros() {
 }
 
 export default SobreNosotros;
+

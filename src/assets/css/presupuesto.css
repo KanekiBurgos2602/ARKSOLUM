@@ -1,0 +1,126 @@
+/* === FONDO Y ESTRUCTURA === */
+.presupuesto-section {
+  background-color: #f4f1ec; /* tono claro tipo beige */
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* === ANIMACIÓN DE ENTRADA === */
+.presupuesto-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.presupuesto-wrapper.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === ENCABEZADO === */
+.presupuesto-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.presupuesto-header h1 {
+  font-size: 2.5rem;
+  color: #6c3a18;
+  margin-bottom: 1rem;
+}
+
+.presupuesto-header p {
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* === CONTENIDO EN DOS COLUMNAS === */
+.presupuesto-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === TEXTO === */
+.presupuesto-text {
+  flex: 1 1 400px;
+}
+
+.presupuesto-text ul {
+  padding-left: 1.2rem;
+  list-style: none;
+}
+
+.presupuesto-text li {
+  font-size: 1.05rem;
+  color: #2b2b2b;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+.presupuesto-text li::before {
+  content: "✔️";
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* === BOTÓN === */
+.presupuesto-btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #9e4b1f;
+  color: #fffaf3;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.presupuesto-btn:hover {
+  background-color: #b35728;
+  transform: scale(1.05);
+}
+
+/* === IMAGEN === */
+.presupuesto-image {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.presupuesto-image img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .presupuesto-header h1 {
+    font-size: 2rem;
+  }
+
+  .presupuesto-header p {
+    font-size: 1rem;
+  }
+
+  .presupuesto-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

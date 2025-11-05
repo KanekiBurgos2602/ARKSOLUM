@@ -32,23 +32,32 @@ const blogPosts = [
 ];
 
 function Blog() {
-  const sectionRef = useRef(null);
+  const sectionsRef = useRef([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    sectionRef.current.classList.add("active");
+
+    requestAnimationFrame(() => {
+      sectionsRef.current.forEach((el) => el?.classList.add("active"));
+    });
   }, []);
 
   return (
     <>
       <Navbar />
-      <section className="blog-section" ref={sectionRef}>
-        <div className="blog-header">
+      <section className="blog-section">
+        <div
+          className="blog-header animate"
+          ref={(el) => (sectionsRef.current[0] = el)}
+        >
           <h1>Blog de construcción y asesoría</h1>
           <p>Ideas, consejos y experiencias reales para construir con claridad.</p>
         </div>
 
-        <div className="blog-articles">
+        <div
+          className="blog-articles animate"
+          ref={(el) => (sectionsRef.current[1] = el)}
+        >
           {blogPosts.map((post, index) => (
             <div className="blog-spotlight" key={index}>
               <img src={post.image} alt={post.title} className="blog-image" />

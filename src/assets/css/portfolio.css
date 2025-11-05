@@ -14,12 +14,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, #c9d6df, #dce3e9); 
+  background: linear-gradient(to bottom, #c9d6df, #dce3e9);
   text-align: center;
   padding: 4rem 2rem 2rem;
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity 1s ease-out, transform 1s ease-out;
   overflow: hidden;
 }
 
@@ -36,11 +33,14 @@
 }
 
 .hero-content {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 800px;
+  margin: 0 auto;
 }
-
 .portfolio-hero h1 {
   font-size: 2.6rem;
   font-weight: 800;

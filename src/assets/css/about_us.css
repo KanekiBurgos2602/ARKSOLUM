@@ -9,17 +9,29 @@
 /* === HERO === */
 .about-hero {
   position: relative;
-  min-height: 500px; /* antes: height: 70vh */
+  min-height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: linear-gradient(to bottom, #e8d7b0, #f2e5c2);
   text-align: center;
   padding: 4rem 2rem 2rem;
+  overflow: hidden;
+}
+
+/* Solo animamos el contenido */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
   opacity: 0;
   transform: translateY(50px);
   transition: opacity 1s ease-out, transform 1s ease-out;
-  overflow: hidden;
+}
+
+.hero-content.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .about-hero.active {

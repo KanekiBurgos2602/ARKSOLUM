@@ -1,0 +1,119 @@
+/* === CONSULTORÍA - FONDO Y CONTENEDOR === */
+.consultoria-container {
+  background-color: #1b1b17; 
+  background-image: radial-gradient(circle, #2b2b21 0%, #1b1b17 100%);
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* === CONTENIDO ANIMADO === */
+.consultoria-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1200px;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.consultoria-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === TEXTO === */
+.consultoria-text {
+  flex: 1;
+  color: #f4ede3;
+  background-color: rgba(255, 250, 240, 0.08);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.consultoria-text h1 {
+  color: #ffa726;
+  font-size: 2.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.consultoria-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  color: #e7dfd4;
+}
+
+.consultoria-benefits {
+  margin: 1.5rem 0;
+}
+
+.benefit {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  color: #f9f6f2;
+}
+
+.benefit span {
+  font-size: 1.3rem;
+}
+
+/* === BOTÓN === */
+.consultoria-btn {
+  float: right;
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  background-color: #ff8f00;
+  color: #1b1b17;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.consultoria-btn:hover {
+  background-color: #ffa726;
+  transform: translateY(-2px);
+}
+
+/* === IMAGEN === */
+.consultoria-img-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.consultoria-img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 992px) {
+  .consultoria-content {
+    flex-direction: column-reverse;
+  }
+
+  .consultoria-text {
+    padding: 1.5rem;
+  }
+
+  .consultoria-text h1 {
+    font-size: 2rem;
+  }
+
+  .consultoria-text p {
+    font-size: 1rem;
+  }
+}

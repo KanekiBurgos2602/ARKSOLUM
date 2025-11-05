@@ -12,9 +12,6 @@
   align-items: center;
   padding: 4rem 2rem;
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
 /* Overlay negro oscuro */
@@ -24,11 +21,6 @@
   inset: 0;
   background-color: rgba(0, 0, 0, 0.65);
   z-index: 0;
-}
-
-.contact-section.active {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* === TARJETA DEL FORMULARIO === */
@@ -42,6 +34,17 @@
   max-width: 500px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
   text-align: center;
+
+  /* 🔹 Animación inicial */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+/* 🔹 Activa animación cuando la sección se activa */
+.contact-section.active .contact-card {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* === LOGO === */

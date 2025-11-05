@@ -49,24 +49,31 @@ const testimonials = [
 ];
 
 function Testimonios() {
-  const sectionRef = useRef(null);
+  const heroRef = useRef(null);
+  const gridRef = useRef(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    sectionRef.current.classList.add("active");
+    requestAnimationFrame(() => {
+      heroRef.current?.classList.add("active");
+      gridRef.current?.classList.add("active");
+    });
   }, []);
 
   return (
     <>
       <Navbar />
 
-      <section className="full-testimonials-section" ref={sectionRef}>
-        <div className="full-testimonials-hero">
+      <section className="full-testimonials-section">
+        <div className="full-testimonials-hero" ref={heroRef}>
           <h1>Lo que opinan nuestros clientes</h1>
-          <p>Sus palabras reflejan la confianza y el compromiso que construimos en cada proyecto.</p>
+          <p>
+            Sus palabras reflejan la confianza y el compromiso que construimos en
+            cada proyecto.
+          </p>
         </div>
 
-        <div className="full-testimonials-grid">
+        <div className="full-testimonials-grid" ref={gridRef}>
           <div className="full-testimonials-row">
             {testimonials.slice(0, 4).map((t, index) => (
               <div className="testimonial-card" key={index}>
