@@ -26,7 +26,11 @@ function Footer() {
           <ul>
             <li><Link to="/">Inicio</Link></li>
             <li><Link to="/sobre-nosotros">Sobre Nosotros</Link></li>
-            <li><Link to="/servicios">Servicios</Link></li>
+            <li><Link to="/consultoria">Consultoría</Link></li>
+            <li><Link to="/inspecciones">Inspecciones</Link></li>
+            <li><Link to="/supervision">Supervisión</Link></li>
+            <li><Link to="/presupuesto">Presupuesto</Link></li>
+            <li><Link to="/remodelacion">Remodelación</Link></li>
             <li><Link to="/portafolio">Portafolio</Link></li>
             <li><Link to="/blog">Blog</Link></li>
             <li><Link to="/contacto">Contacto</Link></li>
