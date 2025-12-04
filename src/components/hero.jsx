@@ -36,7 +36,6 @@ const Hero = () => {
       <div className="hero-content animate" ref={contentRef}>
         <h1>"Construye con claridad,<br />construye con confianza"</h1>
         <p>Soluciones técnicas, eficientes y sostenibles para cada proyecto</p>
-        <a href="/contacto" className="hero-button">Contáctanos</a>
       </div>
 
       {/* Fade dinámico */}

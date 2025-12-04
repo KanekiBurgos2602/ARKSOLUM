@@ -9,19 +9,19 @@ const posts = [
     title: "5 errores comunes al construir tu casa",
     snippet: "Evita los fallos más frecuentes que pueden costarte tiempo y dinero durante tu obra.",
     image: construccionImg,
-    link: "/blog/errores-comunes"
+    link: "https://obras.expansion.mx/construccion/2022/09/14/estos-son-los-errores-mas-comunes-de-autoconstruccion-en-mexico?.com"
   },
   {
     title: "¿Qué hace un ingeniero civil en tu proyecto?",
     snippet: "Descubre el rol técnico y estratégico que desempeñamos para lograr obras eficientes y seguras.",
     image: ingenieroImg,
-    link: "/blog/rol-del-ingeniero"
+    link: "https://www.expocihachub.com/nota/diseno-e-interiorismo/materiales-y-diseno-sostenible?.com"
   },
   {
     title: "Guía básica para planear una remodelación",
     snippet: "¿Quieres renovar tu espacio? Esta guía te ayudará a comenzar con el pie derecho.",
     image: remodelacionImg,
-    link: "/blog/guia-remodelacion"
+    link: "https://www.iestudio.mx/post/costo-por-metro-cuadrado-2025?.com"
   }
 ];
 

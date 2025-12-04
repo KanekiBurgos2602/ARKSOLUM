@@ -42,7 +42,7 @@ function CtaContact() {
             Permítenos acompañarte desde la planeación hasta la ejecución.  
             Ofrecemos asesoría profesional adaptada a tus metas y visión.
           </p>
-          <button className="cta-contact-button">Hablar con un experto</button>
+          <a href="/contacto" className="hero-button">Contáctanos</a>
         </div>
 
         <div className="cta-contact-image animate-right" ref={imageRef}>

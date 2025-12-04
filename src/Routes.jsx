@@ -1,4 +1,7 @@
 import { BrowserRouter as Router, Routes as RouterRoutes, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+
 import Home from './pages/home'
 import SobreNosotros from './pages/about_us'
 import Consultoria from './pages/consultoria'
@@ -31,6 +34,18 @@ function Routes() {
             <Route path="/contacto" element={<Contact />} />
           </RouterRoutes>
         </main>
+
+        <ToastContainer
+          position="bottom-right"
+          autoClose={1500}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+        />
       </div>
     </Router>
   )
